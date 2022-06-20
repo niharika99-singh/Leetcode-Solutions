@@ -8,19 +8,16 @@ public:
         int n=intervals.size();
         
         while(right<n){
-            if(intervals[left][1]<=intervals[right][0]){
-                left=right;
-                right++;
-            }
+            if(intervals[left][1]<=intervals[right][0])
+                left=right;                
             else if(intervals[left][1]<=intervals[right][1]){
                 count++;
-                right++;
             }
-            else if(intervals[left][1]>intervals[right][1]){
+            else {
                 left=right;
-                right++;
                 count++;
             }
+            right++;
         }
         return count;
     }
